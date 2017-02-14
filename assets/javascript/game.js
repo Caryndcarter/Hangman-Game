@@ -53,7 +53,6 @@ function startGame (){
 
 	document.getElementById("animal").innerHTML = buildAnimal.join(" ");
 }
-startGame();
 
 /*	2. document.onkeyup (); takeInLetter
 		take in letterGuess from user and store it
@@ -61,28 +60,26 @@ startGame();
 		push letterGuess into index-number of buildAnimal array if correct OR 
 		push letterGuess into lettersAlreadyGuessed array and reduce numGuessesLeft by one */
 
-document.onkeyup = function () {
-	letterGuess = String.fromCharCode(event.keyCode).toUpperCase(); 
-	console.log(letterGuess);
+function checkLetters (letter) {
 
 	for (var i = 0; i < currentAnimalLetters.length; i++) {
 		if (letterGuess === currentAnimalLetters[i]) {
-			buildAnimal[i] = letterGuess;
+			buildAnimal[i] = letter;
 			document.getElementById("animal").innerHTML = buildAnimal.join(" ");
 				console.log(buildAnimal);
-			var letter = true; 
+			var letterhere = true; 
 		}
 	}
 
-	if (letter !== true) {
-		lettersAlreadyGuessed.push(letterGuess);
+	if (letterhere !== true) {
+		lettersAlreadyGuessed.push(letter);
 			console.log("previous letters", lettersAlreadyGuessed);
-		document.getElementById("lettersGuessed").innerHTML += (letterGuess + " ");	
+		document.getElementById("lettersGuessed").innerHTML += (letter + " ");	
 		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 		numGuessesLeft --;
 			console.log(numGuessesLeft);
 		}
-
+		
 	if (currentAnimalLetters.join("") === buildAnimal.join("")) {
 		wins ++;
 		console.log(wins);
@@ -94,14 +91,20 @@ document.onkeyup = function () {
 		}
 }
 
+startGame();
 
+document.onkeyup = function () {
+	letterGuess = String.fromCharCode(event.keyCode).toUpperCase(); 
+	console.log(letterGuess);
+	checkLetters(letterGuess);
+}
 
- if (numGuessesLeft===0) {
- 	startGame();
- }
- else if (currentAnimalLetters.join("") === buildAnimal.join("")){
- 	startGame(); 
- }
+ // if (numGuessesLeft===0) {
+ // 	startGame();
+ // }
+ // else if (currentAnimalLetters.join("") === buildAnimal.join("")){
+ // 	startGame(); 
+ // }
  
 
 
