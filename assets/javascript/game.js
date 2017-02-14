@@ -64,7 +64,7 @@ startGame();
 document.onkeyup = function () {
 	letterGuess = String.fromCharCode(event.keyCode).toUpperCase(); 
 	console.log(letterGuess);
-	
+
 	for (var i = 0; i < currentAnimalLetters.length; i++) {
 		if (letterGuess === currentAnimalLetters[i]) {
 			buildAnimal[i] = letterGuess;
@@ -78,13 +78,39 @@ document.onkeyup = function () {
 		lettersAlreadyGuessed.push(letterGuess);
 			console.log("previous letters", lettersAlreadyGuessed);
 		document.getElementById("lettersGuessed").innerHTML += (letterGuess + " ");	
+		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 		numGuessesLeft --;
-		document.getElementById("numberLeft").innerHTML = (numGuessesLeft);
 			console.log(numGuessesLeft);
 		}
-	
+
+	if (currentAnimalLetters.join("") === buildAnimal.join("")) {
+		wins ++;
+		console.log(wins);
+		document.getElementById("wins").innerHTML = ("Wins: " +wins);
+	} else if (numGuessesLeft === 0) {
+		losses ++;
+		console.log(losses);
+		document.getElementById("losses").innerHTML = ("Losses: " +losses);
+		}
 }
 
+
+
+ if (numGuessesLeft===0) {
+ 	startGame();
+ }
+ else if (currentAnimalLetters.join("") === buildAnimal.join("")){
+ 	startGame(); 
+ }
+ 
+
+
+
+/*3. compareWords ();
+		compare currentAnimalLetters array to buildAnimal array and alert "You Win!" 
+			if correct, "You have no more guesses." if incorrect.
+		increment wins 
+		if numGuessesLeft ===0, alert "You have no more guesses. Game over." increment losses*/
 
 
 
