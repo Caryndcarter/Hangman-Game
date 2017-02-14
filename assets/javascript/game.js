@@ -37,6 +37,7 @@ var buildAnimal = [];
 function startGame (){
 	numGuessesLeft = 9;
 	lettersAlreadyGuessed = [];
+	buildAnimal= [];
 
 	currentAnimal = animalWords[(Math.floor(Math.random()* 6) +1)];
 		console.log(currentAnimal);
@@ -66,16 +67,25 @@ document.onkeyup = function () {
 	
 	for (var i = 0; i < currentAnimalLetters.length; i++) {
 		if (letterGuess === currentAnimalLetters[i]) {
-			console.log(currentAnimalLetters[i]);
+			buildAnimal[i] = letterGuess;
+			console.log(buildAnimal);
 		}
-		// else if (letterGuess !== currentAnimalLetters[i]) {
-		// 	console.log("This is nuts");
-		// // 	lettersAlreadyGuessed.push(letterGuess);
-		// // 	console.log(lettersAlreadyGuessed);
-		// // 	numGuessesLeft --;
-		// // 	console.log(numGuessesLeft);
-		// }
-	}
+		else {
+			console.log("not a match");
+		}
+	}			
+
+
+	// 	else {
+	// 		console.log("Not a match");
+
+	// 		lettersAlreadyGuessed.push(letterGuess);
+	// 		console.log("used letter:", lettersAlreadyGuessed);
+			
+	// 		numGuessesLeft --;
+	// 		console.log(numGuessesLeft);
+	// 	}
+	// }
 
 }
 
