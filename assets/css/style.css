@@ -32,6 +32,14 @@ p {
   	border-bottom-width:2px;
 }
 
+.box {
+	color:#699bd9;
+}
+
+.inner-box {
+	padding:0px;
+}
+
 .footer {
 	width: 100%;
 	text-align: center;

@@ -69,28 +69,24 @@ document.onkeyup = function () {
 		if (letterGuess === currentAnimalLetters[i]) {
 			buildAnimal[i] = letterGuess;
 			document.getElementById("animal").innerHTML = buildAnimal.join(" ");
-			console.log(buildAnimal);
+				console.log(buildAnimal);
 			var letter = true; 
 		}
-	}	
-			
-	if (letter = false) {
-		lettersAlreadyGuessed.push(letterGuess);
-		console.log("previous letters", lettersAlreadyGuessed);
 	}
 
-	// 	else {
-	// 		console.log("Not a match");
-
-	// 		lettersAlreadyGuessed.push(letterGuess);
-	// 		console.log("used letter:", lettersAlreadyGuessed);
-			
-	// 		numGuessesLeft --;
-	// 		console.log(numGuessesLeft);
-	// 	}
-	// }
-
+	if (letter !== true) {
+		lettersAlreadyGuessed.push(letterGuess);
+			console.log("previous letters", lettersAlreadyGuessed);
+		document.getElementById("lettersGuessed").innerHTML += (letterGuess + " ");	
+		numGuessesLeft --;
+		document.getElementById("numberLeft").innerHTML = (numGuessesLeft);
+			console.log(numGuessesLeft);
+		}
+	
 }
+
+
+
 
 
 
