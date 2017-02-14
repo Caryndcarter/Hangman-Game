@@ -68,13 +68,16 @@ document.onkeyup = function () {
 	for (var i = 0; i < currentAnimalLetters.length; i++) {
 		if (letterGuess === currentAnimalLetters[i]) {
 			buildAnimal[i] = letterGuess;
+			document.getElementById("animal").innerHTML = buildAnimal.join(" ");
 			console.log(buildAnimal);
+			var letter = true; 
 		}
-		else {
-			console.log("not a match");
-		}
-	}			
-
+	}	
+			
+	if (letter = false) {
+		lettersAlreadyGuessed.push(letterGuess);
+		console.log("previous letters", lettersAlreadyGuessed);
+	}
 
 	// 	else {
 	// 		console.log("Not a match");
