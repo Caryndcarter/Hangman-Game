@@ -39,9 +39,9 @@ document.getElementById("wins").innerHTML = ("Wins: " +wins);
 		display blanks for currentAnimal's letters as buildAnimal array*/
 	
 function startGame (){
-	lettersAlreadyGuessed = [];
-	numGuessesLeft = 9;
-	buildAnimal= [];
+	// var numGuessesLeft = 9;
+	// var lettersAlreadyGuessed = [];
+	// buildAnimal= [];
 
 	currentAnimal = animalWords[(Math.floor(Math.random()* 6) +1)];
 		console.log(currentAnimal);
@@ -67,6 +67,8 @@ function startGame (){
 
 function checkLetters (letter) {
 
+
+
 	for (var i = 0; i < currentAnimalLetters.length; i++) {
 		if (letterGuess === currentAnimalLetters[i]) {
 			buildAnimal[i] = letter;
@@ -89,17 +91,6 @@ function checkLetters (letter) {
 		console.log("previous letters", lettersAlreadyGuessed);
 		document.getElementById("lettersGuessed").innerHTML += (letter + " ");	
 		}
-	
-
-	if (currentAnimalLetters.join("") === buildAnimal.join("")) {
-		wins ++;	
-
-	}
-
-	else if (numGuessesLeft === 0) {
-		losses ++;
-		
-	}
 }
 
 /*	3.  compareWords ();
@@ -110,19 +101,20 @@ function checkLetters (letter) {
 
 
 function compareWords () {
+
 		document.getElementById("losses").innerHTML = ("Losses: " +losses);
 		document.getElementById("wins").innerHTML = ("Wins: " +wins);
 		document.getElementById("animal").innerHTML = buildAnimal.join(" ")
 
-
 	 if (currentAnimalLetters.join("") === buildAnimal.join("")) {
+		wins++;
 		console.log(wins);
 		alert("You win!");
 		startGame();
  		
 
 	} else if (numGuessesLeft === 0) {
-		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
+		losses ++;
 		console.log(losses);
 		alert("Game Over!"); 
 		startGame();
