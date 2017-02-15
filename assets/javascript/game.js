@@ -77,9 +77,9 @@ function checkLetters (letter) {
 	}
 
 	if (letterHere !== true) {
-		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 		numGuessesLeft --;
 			console.log(numGuessesLeft);
+		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 		// for (var i = 0; i < lettersAlreadyGuessed.length; i++) {
 		// 		if (letter !== lettersAlreadyGuessed[i]) {
 		// 			lettersAlreadyGuessed.push(letter);
