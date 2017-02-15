@@ -39,9 +39,9 @@ document.getElementById("wins").innerHTML = ("Wins: " +wins);
 		display blanks for currentAnimal's letters as buildAnimal array*/
 	
 function startGame (){
-	// var numGuessesLeft = 9;
-	// var lettersAlreadyGuessed = [];
-	// buildAnimal= [];
+	lettersAlreadyGuessed = [];
+	numGuessesLeft = 9;
+	buildAnimal= [];
 
 	currentAnimal = animalWords[(Math.floor(Math.random()* 6) +1)];
 		console.log(currentAnimal);
@@ -67,8 +67,6 @@ function startGame (){
 
 function checkLetters (letter) {
 
-
-
 	for (var i = 0; i < currentAnimalLetters.length; i++) {
 		if (letterGuess === currentAnimalLetters[i]) {
 			buildAnimal[i] = letter;
@@ -91,6 +89,17 @@ function checkLetters (letter) {
 		console.log("previous letters", lettersAlreadyGuessed);
 		document.getElementById("lettersGuessed").innerHTML += (letter + " ");	
 		}
+	
+
+	if (currentAnimalLetters.join("") === buildAnimal.join("")) {
+		wins ++;	
+
+	}
+
+	else if (numGuessesLeft === 0) {
+		losses ++;
+		
+	}
 }
 
 /*	3.  compareWords ();
@@ -101,20 +110,19 @@ function checkLetters (letter) {
 
 
 function compareWords () {
-
 		document.getElementById("losses").innerHTML = ("Losses: " +losses);
 		document.getElementById("wins").innerHTML = ("Wins: " +wins);
 		document.getElementById("animal").innerHTML = buildAnimal.join(" ")
 
+
 	 if (currentAnimalLetters.join("") === buildAnimal.join("")) {
-		wins++;
 		console.log(wins);
 		alert("You win!");
 		startGame();
  		
 
 	} else if (numGuessesLeft === 0) {
-		losses ++;
+		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 		console.log(losses);
 		alert("Game Over!"); 
 		startGame();
@@ -132,7 +140,6 @@ document.onkeyup = function () {
 
 
 /* 	General Steps:
-
 	1. set numGuessesLeft to 9
 	2. set lettersAlreadyGuessed array to blank/zero
 	3. choose a currentAnimal from the animalWords array at random 
@@ -147,8 +154,6 @@ document.onkeyup = function () {
 	10. increment wins or losses accordingly 
 	11. if numGuessesLeft ===0, alert "You have no more guesses. Game over."
 	12. restart game if the user selects letters again
-
-
 Functions: 
 	1. startGame ();
 		set numGuessesLeft to 9
@@ -162,15 +167,11 @@ Functions:
 		compare letterGuess to letters in currentAnimalLetters--get index number if identical
 		push letterGuess into index-number of buildAnimal array if correct OR 
 			push letterGuess into lettersAlreadyGuessed array and reduce numGuessesLeft by one
-
 	3. compareWords ();
 		compare currentAnimalLetters array to buildAnimal array and alert "You Win!" 
 			if correct, "You have no more guesses." if incorrect.
 		increment wins 
 		if numGuessesLeft ===0, alert "You have no more guesses. Game over." increment losses
-
 	4. restartGame ();
 		if numGuessesLeft === 0 OR currentAnimalLetters === buildAnimal,
 		restart Game > startGame();*/
-
-
