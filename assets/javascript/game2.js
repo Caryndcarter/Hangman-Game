@@ -27,9 +27,7 @@ var currentAnimalLetters=[];
 var buildAnimal = [];
 
 	
-document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
-document.getElementById("losses").innerHTML = ("Losses: " +losses);
-document.getElementById("wins").innerHTML = ("Wins: " +wins);
+
 
 /*1. startGame ();
 		set numGuessesLeft to 9
@@ -39,10 +37,13 @@ document.getElementById("wins").innerHTML = ("Wins: " +wins);
 		display blanks for currentAnimal's letters as buildAnimal array*/
 	
 function startGame (){
+	buildAnimal= [];
 	lettersAlreadyGuessed = [];
 	numGuessesLeft = 9;
-	buildAnimal= [];
-
+	document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
+	document.getElementById("losses").innerHTML = ("Losses: " +losses);
+	document.getElementById("wins").innerHTML = ("Wins: " +wins);
+	
 	currentAnimal = animalWords[(Math.floor(Math.random()* 6) +1)];
 		console.log(currentAnimal);
 
@@ -93,12 +94,14 @@ function checkLetters (letter) {
 
 	if (currentAnimalLetters.join("") === buildAnimal.join("")) {
 		wins ++;	
-
+		document.getElementById("wins").innerHTML = ("Wins: " +wins);
+		document.getElementById("animal").innerHTML = buildAnimal.join(" ")
 	}
 
 	else if (numGuessesLeft === 0) {
 		losses ++;
-		
+		document.getElementById("losses").innerHTML = ("Losses: " +losses);
+		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 	}
 }
 
@@ -110,11 +113,7 @@ function checkLetters (letter) {
 
 
 function compareWords () {
-		document.getElementById("losses").innerHTML = ("Losses: " +losses);
-		document.getElementById("wins").innerHTML = ("Wins: " +wins);
-		document.getElementById("animal").innerHTML = buildAnimal.join(" ")
-
-
+		
 	 if (currentAnimalLetters.join("") === buildAnimal.join("")) {
 		console.log(wins);
 		alert("You win!");
@@ -122,7 +121,7 @@ function compareWords () {
  		
 
 	} else if (numGuessesLeft === 0) {
-		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
+		
 		console.log(losses);
 		alert("Game Over!"); 
 		startGame();
