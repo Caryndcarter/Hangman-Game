@@ -1,10 +1,15 @@
-// function ready(fn) {
-//   if (document.readyState != 'loading'){
-//     fn();
-//   } else {
-//     document.addEventListener('DOMContentLoaded', fn);
-//   }
-// }
+function ready(fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
+
+window.onload = function(){
+
+	
+}
 
 var animalWords = [
 	"GIRAFFE",
@@ -105,10 +110,8 @@ function checkLetters () {
 }
 
 /*	3.  compareWords ();
-// 		compare currentAnimalLetters array to buildAnimal array and alert "You Win!" 
-// 			if correct, "You have no more guesses." if incorrect.
-// 		increment wins 
-// 		if numGuessesLeft ===0, alert "You have no more guesses. Game over." increment losses*/
+	compare currentAnimalLetters array to buildAnimal array and alert "You Win!" if correct, "You have no more guesses." 
+	If incorrect, increment wins if numGuessesLeft ===0, alert "You have no more guesses. Game over." and increment losses*/
 
 
 function compareWords () {
