@@ -1,8 +1,14 @@
-.background {
-	width:100%;
+.fullscreen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
 	background-image: url("../images/leopard-print.jpg");
-	overflow:auto;
-}
+	background-repeat: repeat; 
+	
+  }
 
 .hangman-header {
 	padding:0px;
@@ -43,6 +49,9 @@ p {
 }
 
 .footer {
+	position: fixed;
+  	left: 0;
+	bottom: 0;
 	width: 100%;
 	text-align: center;
 	background-color:#666666;
