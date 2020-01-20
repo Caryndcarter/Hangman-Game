@@ -35,6 +35,7 @@ var won = "";
 /*1. startGame ();
 		set numGuessesLeft to 9
 		set lettersAlreadyGuessed array to blank/zero
+		set won to blank
 		choose currentAnimal from the animalWords array at random
 		make the currentAnimal an array of currentAnimalLetters
 		display blanks for currentAnimal's letters as buildAnimal array*/
@@ -44,11 +45,11 @@ function startGame (){
 	lettersAlreadyGuessed = [];
 	numGuessesLeft = 9;
 	won = ""; 
+
 	document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
 	document.getElementById("lettersGuessed").innerHTML = (lettersAlreadyGuessed);	
 
 	currentAnimal = animalWords[(Math.floor(Math.random()* 6) +1)];
-
 	currentAnimalLetters = currentAnimal.split("");
 
 	for (var i = 0; i < currentAnimal.length; i++) {
@@ -58,12 +59,12 @@ function startGame (){
 	document.getElementById("animal").innerHTML = buildAnimal.join(" ");
 }
 
-/*	2. document.onkeyup (); takeInLetter
-		take in letterGuess from user and store it
-		compare letterGuess to letters in currentAnimalLetters--get index number if identical
+/*	2. compare letterGuess to letters in currentAnimalLetters--get index number if identical
 		push letterGuess into index-number of buildAnimal array if correct OR 
-		push letterGuess into lettersAlreadyGuessed array 
-		and reduce numGuessesLeft by one */
+		push letterGuess into lettersAlreadyGuessed array and reduce numGuessesLeft by one 
+		when the guesses match the animal completely, increment the wins by 1 and replace the letters guessed with the correct word
+		and add to the wins or losses
+		set won to true or false with a timeout to prevent the alert in the final announcement function from firing too soon*/
 
 function checkLetters () {
 
@@ -87,22 +88,29 @@ function checkLetters () {
 		wins ++;
 		document.getElementById("animal").innerHTML = buildAnimal.join(" ")	
 		document.getElementById("wins").innerHTML = ("Wins: " +wins);
-		won = true; 
+		setTimeout(function() {
+			won = true; 
+			announcement();
+		},50)
 	}
 
 	else if (numGuessesLeft === 0) {
 		losses ++;
 		document.getElementById("losses").innerHTML = ("Losses: " +losses);
 		document.getElementById("numberLeft").innerHTML = ("Guesses Left: " +numGuessesLeft);
-		won = false;
+		setTimeout(function() {
+			won = false; 
+			announcement();
+		},50)
 	}
 }
 
-/*	3.  compareWords ();
-	compare currentAnimalLetters array to buildAnimal array and alert "You Win!" if correct, "You have no more guesses." 
-	If incorrect, increment wins if numGuessesLeft ===0, alert "You have no more guesses. Game over." and increment losses*/
+/*	3.  announcement ();
+	If won = true, alert "You Win!", and if won = false, alert "You have no more guesses. Game Over!"  
+	Then start the game over for the user.  
+*/
 
-function compareWords () {
+function announcement () {
 		
 	 if (won === true) {
 		alert("You win!");
@@ -110,17 +118,21 @@ function compareWords () {
  		
 
 	} else if (won === false) {
-		alert("No more guesses. Game Over!"); 
+		alert("You have no more guesses. Game Over!"); 
 		startGame();
-		}
+	}
 }
 
+
 startGame();
+
+/*document.onkeyup (); takeInLetter
+take in letterGuess from user and store it
+call the checkLetters function*/
 
 document.onkeyup = function () {
 	letterGuess = String.fromCharCode(event.keyCode).toUpperCase(); 
 	checkLetters();
-	compareWords();
 }
 
 
@@ -151,15 +163,14 @@ Functions:
 		display blanks for currentAnimal's letters as buildAnimal array
 	2. document.onkeyup (); takeInLetter
 		take in letterGuess from user and store it
-		compare letterGuess to letters in currentAnimalLetters--get index number if identical
+	3. checkLetters ()
+		check letterGuess to letters in currentAnimalLetters--get index number if identical
 		push letterGuess into index-number of buildAnimal array if correct OR 
 			push letterGuess into lettersAlreadyGuessed array and reduce numGuessesLeft by one
-	3. compareWords ();
-		compare currentAnimalLetters array to buildAnimal array and alert "You Win!" 
-			if correct, "You have no more guesses." if incorrect.
-		increment wins 
+		compare currentAnimalLetters array to buildAnimal array 
+	4. announement ();
+		alert "You Win!" if the animal letters match and increment wins 
 		if numGuessesLeft ===0, alert "You have no more guesses. Game over." increment losses
-	4. restartGame ();
 		if numGuessesLeft === 0 OR currentAnimalLetters === buildAnimal,
 		restart Game > startGame();
 		*/
