@@ -1,6 +1,8 @@
 # Hangman-Game
 A one-page hangman game app I built wtih JavaScript and Boostrap.  
 
+Play it here: https://animalhangman.herokuapp.com/
+
 ## Play Animal-Themed Hangman! 
 
 * Every word the game proposes is an animal. 
