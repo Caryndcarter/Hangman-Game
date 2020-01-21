@@ -13,7 +13,7 @@ A one-page hangman game app I built wtih JavaScript and Boostrap.
 * The number of times you win and lose are tallied at the bottom of the screen.  
 
 
-![Screenshot of the Hangman app](https://github.com/Caryndcarter/Hangman-Game/blob/master/assets/images/animals.jpg)
+![Screenshot of the Hangman app](https://github.com/Caryndcarter/Hangman-Game/blob/master/assets/images/animal_hangman_screenshot_35.jpg)
 
 
 
