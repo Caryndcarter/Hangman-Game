@@ -1,5 +1,5 @@
 # Hangman-Game
-A one-page hangman game app built wtih JavaScript and Boostrap.  
+A one-page hangman game app I built wtih JavaScript and Boostrap.  
 
 ## Play Animal-Themed Hangman! 
 
@@ -11,6 +11,9 @@ A one-page hangman game app built wtih JavaScript and Boostrap.
 * When you guess the word correctly, an alert will tell you you've won and a new game will start.  
 * If you use up all 9 guesses and you haven't guessed the word correctly, an alert will tell you "Game Over" and a new game will start.   
 * The number of times you win and lose are tallied at the bottom of the screen.  
+
+
+![Screenshot of the Hangman app](https://github.com/Caryndcarter/Hangman-Game/blob/master/assets/images/animals.jpg)
 
 
 
