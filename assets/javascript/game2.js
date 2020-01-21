@@ -113,12 +113,12 @@ function checkLetters () {
 function announcement () {
 		
 	 if (won === true) {
-		alert("You win!");
+		alert("You win! Start new game?");
 		startGame();
  		
 
 	} else if (won === false) {
-		alert("You have no more guesses. Game Over!"); 
+		alert("You have no more guesses. Game Over! Start new game?"); 
 		startGame();
 	}
 }
