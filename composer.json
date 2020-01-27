@@ -1,4 +1,1 @@
-{
-    "name": "Hangman-Game",
-    "description": "A one-page app for playing hangman. This composer.json file is only here so that the app is recognized by Heroku as a php app, which is the easiest kind to set up."
-}
+{}
