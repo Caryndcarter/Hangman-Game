@@ -1,5 +1,5 @@
 # Hangman-Game
-A one-page hangman game app I built wtih JavaScript and Boostrap.  
+A one-page hangman game app I built wtih JavaScript and Bootstrap during my time in the Northwestern Coding Bootcamp.  
 
 Play it here: https://animalhangman.herokuapp.com/
 
@@ -13,6 +13,7 @@ Play it here: https://animalhangman.herokuapp.com/
 * When you guess the word correctly, an alert will tell you you've won and a new game will start.  
 * If you use up all 9 guesses and you haven't guessed the word correctly, an alert will tell you "Game Over" and a new game will start.   
 * The number of times you win and lose are tallied at the bottom of the screen.  
+* To clear your wins and losses refresh the page. 
 
 
 ![Screenshot of the Hangman app](https://github.com/Caryndcarter/Hangman-Game/blob/master/assets/images/animal_hangman_screenshot_35.png)
