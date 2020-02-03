@@ -1,4 +1,4 @@
-# Hangman-Game
+# Animal Hangman Game
 A one-page hangman game app I built wtih JavaScript and Bootstrap during my time in the Northwestern Coding Bootcamp.  
 
 Play it here: https://animalhangman.herokuapp.com/
